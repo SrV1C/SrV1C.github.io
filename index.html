@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Portfólio</title>
+<style>
+:root {
+--cor-principal: #0f004f;
+--cor-fundo: #83a2ff;
+}
+body {
+margin: 5;
+font-family: monospace, 'Times New Roman', Times, serif;
+background-color: var(--cor-fundo);
+color: #000000;
+line-height: 1.6;
+text-align: center;
+}
+header {
+background-color: var(--cor-principal);
+color: #ffffff;
+text-align: center;
+padding: 32px 16px;
+}
+main {
+}
+max-width: 700px;
+margin: 0 auto;
+padding: 16px;
+section {
+}
+background-color: #ffffff;
+border-radius: 12px;
+padding: 20px;
+margin-bottom: 16px;
+img {
+}
+max-width: 100%;
+height: auto;
+border-radius: 12px;
+input, textarea {
+}
+width: 100%;
+padding: 10px;
+margin: 6px 0 12px;
+font-size: 16px;
+box-sizing: border-box;
+button {
+background-color: var(--cor-principal);
+color: #ffffff;
+border: none;
+padding: 12px 20px;
+border-radius: 8px;
+font-size: 16px;
+cursor: pointer;
+}
+#aviso {
+font-weight: bold;
+}
+footer {
+text-align: center;
+padding: 16px;
+font-size: 14px;
+}
+</style>
+</head>
+<body>
+    <header>
+<h1>Victor Hugo</h1>
+<p>Aluno do Técnico em Informática</p>
+<img src="img/curso.jpeg" alt="Victor" width="340">
+</header>
+<main>
+<section>
+<h2>Sobre mim</h2>
+<img src="img/foto.jpeg" alt="Victor" width="240">
+<p>Meu nome é Victor. Sou uma pessoa muito curiosa, esforçada e resiliente. Gosto de jogar videogame e amo café.</p>
+</section>
+<section>
+<h2>Meus projetos</h2>
+<ul>
+<li>Projeto 1: minha primeira página web</li>
+<li>Projeto 2: criar um jogo</li>
+</ul>
+</section>
+<section>
+<h2>Fale comigo</h2>
+<label for="nome">Seu nome: </label>
+<input type="text" id="nome" placeholder="Digite seu nome">
+<label for="mensagem">Sua mensagem: </label>
+<textarea id="mensagem" rows="4" placeholder="Digite sua mensagem">
+</textarea>
+<button type="button" id="btnEnviar">Enviar pelo WhatsApp</button>
+<p id="aviso"></p>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Victor Hugo</p>
+</footer>
+<script>
+// QUESTÃO 3: complete o código do botão
+var numeroWhatsApp = "5591993115792"; // TODO 1: troque pelo número (veja a Questão 3)
+document.getElementById("btnEnviar").addEventListener("click", function () {
+var nome = document.getElementById("nome").value.trim();
+var mensagem = document.getElementById("mensagem").value.trim();
+var aviso = document.getElementById("aviso");
+// TODO 2: se o nome ou a mensagem estiverem vazios,
+//
+if (nome === "" || mensagem === "") {
+aviso.textContent = "Preencha o nome e a mensagem.";
+aviso.style.color = "red";
+return;
+}
+// TODO 3: monte o texto que será enviado
+var texto = "Opa, tudo bem? Meu nome é " + nome + ". " + mensagem;
+var link= "https://wa.me/"+ numeroWhatsApp + "?text=" +
+encodeURIComponent(texto);
+window.open(link, "_blank");
+});
+</script>
+</body>
+</html>
